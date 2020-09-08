@@ -1,1 +1,1 @@
-# team-6-adventure
+# team6_adventure
