@@ -1,3 +1,5 @@
-# team6_adventure
+# The Alchemist & The Scroll | Team 6 Adventure FSU Game Design F20
 
-A Legend of Zelda-esque pirate adventure game.
+You are an elf and you meet a master alchemist in prison with you. The master alchemist teaches you of a master scroll and teaches you how to use alchemy to escape and save your people by using the sacred scroll. You’ve been captured and are in an enemy camp. Your people are at war with an opposing faction over a land dispute. You must figure out how to escape to return to your own camp and share information about a sacred scroll, which you gain from talking to another prisoner. You have with you your pack, from which you can make potions. 
+
+You escape and make your way back to your camp. On the way, you have to sneak past enemies and mythical creatures who wish to harm you. You must also discover helpful ingredients for your potions. At camp, you tell your brethren in arms that you have heard of a potion which will win the war. At battle, you fight past the enemies to get to the scroll. Even though it is damaged, you learn how to craft this potion and win the war for your people.
