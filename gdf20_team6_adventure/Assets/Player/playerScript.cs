@@ -14,8 +14,11 @@ public class playerScript : MonoBehaviour {
     
     // Update is called once per frame
     void Update() {
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-        rb.velocity = new Vector3(x * speed, y * speed, 0f);
+        // get inputs
+        x = Input.GetAxisRaw("Horizontal") * speed;
+        y = Input.GetAxisRaw("Vertical") * speed;
+
+        // move player according to input
+        transform.Translate(x, y, 0);
     }
 }
