@@ -32,7 +32,7 @@ public class playerMovement : MonoBehaviour {
             // get GameObject for the ingredient collided with
             GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
             // get ingredient ID
-            int ingredient = collision.gameObject.GetComponent<ingredientBehavior>().ingID;
+            int ingredient = collision.gameObject.GetComponent<ingredient>().ID;
             // add ingredient to inventory
             inventory.GetComponent<inventoryManager>().addIngredient(ingredient);
             // destroy ingredient GameObject
