@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class textBoxManager : MonoBehaviour {
+    // text box and text field must be manually set in inspector for every instance of this script. Thanks Unity
     public GameObject textBox;
     public Text textField;
     public inventoryManager inventory;
     public int waitSeconds;
     // Start is called before the first frame update
     void Start() {
-        textBox = GameObject.FindGameObjectWithTag("TextBox");
         textBox.SetActive(false);
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<inventoryManager>();
     }
