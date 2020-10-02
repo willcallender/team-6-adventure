@@ -1,20 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour {
     public float speed;
     float x, y;
-    // Rigidbody2D rb;
+    public GameObject textBox;
 
     // Start is called before the first frame update
     void Start() {
-        // rb = GetComponent<Rigidbody2D> ();
-        // Camera cam = (Camera)FindObjectOfType(typeof(Camera));
-        // float width, height;
-        // height = 2 * cam.orthographicSize;
-        // width = height * cam.aspect;
-        // speed = height * 0.01f;
     }
     
     // Update is called once per frame
@@ -37,6 +32,8 @@ public class playerMovement : MonoBehaviour {
             inventory.GetComponent<inventoryManager>().addIngredient(ingredient);
             // destroy ingredient GameObject
             Destroy(collision.gameObject);
+            // display message about discovery
+            textBox.GetComponent<textBoxManager>().discoverIngredient(ingredient);
         }
     }
 }
