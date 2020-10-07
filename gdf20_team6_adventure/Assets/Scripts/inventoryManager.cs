@@ -5,12 +5,14 @@ using UnityEngine;
 public class inventoryManager : MonoBehaviour {
     // declare array of ingredient names, amount in inventory, and
     // whether or not they've been discovered yet
-    public string[] itemNames = {"Ingredient 1", "Ingredient 2"};
+    public TextAsset textFile;
+    public string[] itemNames;
     public int[] inventory;
     public bool[] discovered;
 
     // Start is called before the first frame update
     void Start() {
+        itemNames = (textFile.text.Split('\n'));
         inventory = new int[itemNames.Length];
         discovered = new bool[itemNames.Length];
     }
