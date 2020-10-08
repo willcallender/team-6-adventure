@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: e80f6c0a3f4d6d744881aac481317db9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4201241306635809657
+    second: elf_bone_0
+  - first:
+      213: -2337192062605510842
+    second: elf_bone_1
+  - first:
+      213: 6312423121936036728
+    second: elf_bone_2
+  - first:
+      213: 6134480740466592739
+    second: elf_bone_3
+  - first:
+      213: 1869135266002145939
+    second: elf_bone_4
+  - first:
+      213: 3602401751981550694
+    second: elf_bone_5
+  - first:
+      213: -4482515319087078196
+    second: elf_bone_6
+  - first:
+      213: 13176008807509509
+    second: elf_bone_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: elf_bone_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 265
+        width: 117
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 28.180298, y: 383.13116, z: 0}
+        rotation: {x: 0, y: 0, z: -0.7085543, w: 0.7056563}
+        length: 373.3365
+        parentId: -1
+      - name: bone_2
+        position: {x: 102.387955, y: 286.73773, z: 0}
+        rotation: {x: 0, y: 0, z: 0.9999772, w: 0.0067590717}
+        length: 56.61719
+        parentId: -1
+      - name: bone_3
+        position: {x: 56.617188, y: 0.00022469167, z: 0}
+        rotation: {x: 0, y: 0, z: -0.5136748, w: 0.857985}
+        length: 69.8021
+        parentId: 1
+      spriteID: 973b9b195becd4a30800000000000000
+      internalID: 4201241306635809657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 463
+        width: 54
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 16.650253, y: 134.63934, z: 0}
+        rotation: {x: 0, y: 0, z: -0.6358027, w: 0.77185166}
+        length: 63.915264
+        parentId: -1
+      - name: bone_2
+        position: {x: 63.91526, y: 0.000004211721, z: 0}
+        rotation: {x: 0, y: 0, z: -0.045872893, w: 0.9989473}
+        length: 60.746227
+        parentId: 0
+      spriteID: 6473988b330a09fd0800000000000000
+      internalID: -2337192062605510842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_2
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 418
+        width: 237
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 85.306, y: 64.885254, z: 0}
+        rotation: {x: 0, y: 0, z: -0.999774, w: 0.021261835}
+        length: 35.988808
+        parentId: -1
+      spriteID: 873b5fe726b3a9750800000000000000
+      internalID: 6312423121936036728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 207
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 16.61206, y: 12.715836, z: 0}
+        rotation: {x: 0, y: 0, z: 0, w: 1}
+        length: 0
+        parentId: -1
+      - name: bone_2
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0.7630205, w: 0.6463743}
+        length: 13.960443
+        parentId: 0
+      spriteID: 3eb8cf84bbd022550800000000000000
+      internalID: 6134480740466592739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_4
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 250
+        width: 125
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 62.398926, y: 103.59564, z: 0}
+        rotation: {x: 0, y: 0, z: -0.70345277, w: 0.710742}
+        length: 74.21162
+        parentId: -1
+      spriteID: 392963f0f9080f910800000000000000
+      internalID: 1869135266002145939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 38
+        width: 60
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cea1d9e4d4ef130800000000000000
+      internalID: 3602401751981550694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_6
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 44
+        width: 73
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 40.999985, y: 158.88524, z: 0}
+        rotation: {x: 0, y: 0, z: -0.6817576, w: 0.7315781}
+        length: 65.18913
+        parentId: -1
+      - name: bone_2
+        position: {x: 65.189125, y: -0.0000067166766, z: 0}
+        rotation: {x: 0, y: 0, z: -0.030129362, w: 0.99954605}
+        length: 74.9766
+        parentId: 0
+      - name: bone_3
+        position: {x: -79.874344, y: 159.65025, z: 0}
+        rotation: {x: 0, y: 0, z: -0.6978664, w: 0.716228}
+        length: 58.92697
+        parentId: -1
+      - name: bone_4
+        position: {x: 58.926968, y: 0.000017555882, z: 0}
+        rotation: {x: 0, y: 0, z: 0.022668324, w: 0.9997431}
+        length: 85.90137
+        parentId: 2
+      spriteID: cc461911118eac1c0800000000000000
+      internalID: -4482515319087078196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elf_bone_7
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 35
+        width: 135
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 53.398895, y: 164.82512, z: 0}
+        rotation: {x: 0, y: 0, z: -0.66564316, w: 0.7462702}
+        length: 147.84636
+        parentId: -1
+      spriteID: 50e678c928fce2000800000000000000
+      internalID: 13176008807509509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
