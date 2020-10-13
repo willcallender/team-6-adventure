@@ -9,7 +9,11 @@ public class sceneController : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
-    public IEnumerator changeSceneAsync(string name) {
+    public void loadingScreen(string name) {
+        StartCoroutine(changeSceneAsync(name));
+    }
+
+    IEnumerator changeSceneAsync(string name) {
         AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(name);
 
         while (sceneLoad.progress < 1) {
