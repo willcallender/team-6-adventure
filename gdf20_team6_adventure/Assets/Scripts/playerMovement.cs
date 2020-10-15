@@ -7,9 +7,11 @@ public class playerMovement : MonoBehaviour {
     public float speed;
     float x, y;
     public GameObject textBox;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start() {
+        anim = GetComponent<Animator>();
     }
     
     // Update is called once per frame
@@ -17,9 +19,18 @@ public class playerMovement : MonoBehaviour {
         // get inputs
         x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-
-        // move player according to input
+        
         transform.Translate(x, y, 0);
+
+        // update anim variables
+        anim.SetFloat("x", x);
+        anim.SetFloat("y", y);
+
+        if (x == 0 && y == 0) {
+            anim.SetBool("isIdle", true);
+        } else {
+            anim.SetBool("isIdle", false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
