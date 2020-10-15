@@ -326,6 +326,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675730023}
     m_Modifications:
+    - target: {fileID: -6550654609010566674, guid: fb775ccb38461d5499b98d64efb1d820, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6550654609010566674, guid: fb775ccb38461d5499b98d64efb1d820, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.24
+      objectReference: {fileID: 0}
     - target: {fileID: -5737520790699546749, guid: fb775ccb38461d5499b98d64efb1d820, type: 3}
       propertyPath: ID
       value: 1

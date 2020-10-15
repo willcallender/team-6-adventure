@@ -34,6 +34,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.24
       objectReference: {fileID: 0}
+    - target: {fileID: -6550654609010566674, guid: fb775ccb38461d5499b98d64efb1d820, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7041021977959675754, guid: fb775ccb38461d5499b98d64efb1d820, type: 3}
       propertyPath: m_Name
       value: Ingredient 1
