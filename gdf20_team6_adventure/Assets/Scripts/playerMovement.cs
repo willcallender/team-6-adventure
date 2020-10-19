@@ -60,7 +60,23 @@ public class playerMovement : MonoBehaviour {
             } else {
                 anim.Play("elf_run_down");
             }
-        } 
+        }
+        // if x changed to 0 and y not 0
+        else if (x == 0 && py == y && y != 0) {
+            if (y > 0) {
+                anim.Play("elf_run_up");
+            } else {
+                anim.Play("elf_run_down");
+            }
+        }
+        // if y changed to 0 and x not 0
+        else if (y == 0 && px == x && x != 0) {
+            if (x > 0) {
+                anim.Play("elf_run_right");
+            } else if (x < 0) {
+                anim.Play("elf_run_left");
+            }
+        }
         // if both changed
         else if (px != x && py != y) {
             if (x == 0 && y == 0) {
