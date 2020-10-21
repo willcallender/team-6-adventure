@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class textBoxManager : MonoBehaviour {
     // text box and text field must be manually set in inspector for every instance of this script. Thanks Unity
     public GameObject textBox;
-    public Text textField;
+    public TextElement textField;
     public inventoryManager inventory;
     public int waitSeconds;
     // Start is called before the first frame update
