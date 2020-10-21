@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour {
     // speed multiplier
@@ -99,7 +99,7 @@ public class playerMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Ingredient") {
-            // get GameObject for the ingredient collided with
+            // get GameObject for the inventory
             GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
             // get ingredient ID
             int ingredient = collision.gameObject.GetComponent<ingredient>().ID;
