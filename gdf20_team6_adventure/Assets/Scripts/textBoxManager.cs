@@ -27,8 +27,7 @@ public class textBoxManager : MonoBehaviour {
 
     IEnumerator dispText(string message) {
         print("Entered coroutine");
-        GameObject textDisp = Instantiate(textBoxPrefab);
-        textDisp.transform.SetParent(canvas.transform, false);
+        GameObject textDisp = Instantiate(textBoxPrefab, canvas.transform);
         textDisp.transform.Translate(0, -msgOffset * pendingMessages, 0);
         textDisp.GetComponent<Text>().text = message;
         pendingMessages++;
