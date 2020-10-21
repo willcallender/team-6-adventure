@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class sceneController : MonoBehaviour
 {
     public GameObject loadScreen;
+    public Slider slider;
 
     public void changeScene(string name) {
         SceneManager.LoadScene(name);
@@ -23,6 +24,7 @@ public class sceneController : MonoBehaviour
 
         while (!sceneLoad.isDone) {
             float progress = Mathf.Clamp01(sceneLoad.progress / 0.9f);
+            slider.value = progress;
             print(progress);
             yield return null;
         }

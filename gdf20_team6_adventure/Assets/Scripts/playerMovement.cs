@@ -13,13 +13,18 @@ public class playerMovement : MonoBehaviour {
     // the values of x and y from the previous frame
     float px, py = 0;
     // the text box object to write to
-    public GameObject textBox;
+    public GameObject canvas;
+    public textBoxManager text;
     // the player animation component to control
     Animator anim;
+    // get GameObject for the inventory
+    inventoryManager inventory;
 
     // Start is called before the first frame update
     void Start() {
         anim = GetComponent<Animator>();
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<inventoryManager>();
+        text = canvas.GetComponent<textBoxManager>();
     }
     
     // Update is called once per frame
@@ -99,16 +104,14 @@ public class playerMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Ingredient") {
-            // get GameObject for the inventory
-            GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
             // get ingredient ID
             int ingredient = collision.gameObject.GetComponent<ingredient>().ID;
             // add ingredient to inventory
-            inventory.GetComponent<inventoryManager>().addIngredient(ingredient);
+            inventory.addIngredient(ingredient);
             // destroy ingredient GameObject
             Destroy(collision.gameObject);
             // display message about discovery
-            textBox.GetComponent<textBoxManager>().discoverIngredient(ingredient);
+            text.discoverIngredient(ingredient);
         }
     }
 }
