@@ -22,7 +22,7 @@ public class inventoryManager : MonoBehaviour {
         
     // }
 
-    public void addIngredient(int ID) {
+    public void addItem(int ID) {
         if (!discovered[ID]) {
             print("New item " + itemNames[ID] + " discovered");
             discovered[ID] = true;

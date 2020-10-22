@@ -107,7 +107,7 @@ public class playerMovement : MonoBehaviour {
             // get ingredient ID
             int ingredient = collision.gameObject.GetComponent<ingredient>().ID;
             // add ingredient to inventory
-            inventory.addIngredient(ingredient);
+            inventory.addItem(ingredient);
             // destroy ingredient GameObject
             Destroy(collision.gameObject);
             // display message about discovery
