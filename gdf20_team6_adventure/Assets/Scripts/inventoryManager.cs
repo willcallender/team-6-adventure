@@ -11,6 +11,7 @@ public class inventoryManager : MonoBehaviour {
     public bool[] discovered;
     public int numItems;
     public int numHerbs;
+    public Sprite[] herbs;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,12 +19,12 @@ public class inventoryManager : MonoBehaviour {
         numItems = itemNames.Length;
         inventory = new int[numItems];
         discovered = new bool[numItems];
+        herbs = new Sprite[numHerbs];
+        for (int i = 0; i < numHerbs; i++) {
+            string path = "Sprites/Herbs/" + i.ToString();
+            herbs[i] = Resources.Load<Sprite>(path);
+        }
     }
-
-    // Update is called once per frame
-    // void Update() {
-        
-    // }
 
     public void addItem(int ID) {
         if (!discovered[ID]) {
