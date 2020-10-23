@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour {
     // speed multiplier
@@ -107,7 +107,7 @@ public class playerMovement : MonoBehaviour {
             // get ingredient ID
             int ingredient = collision.gameObject.GetComponent<ingredient>().ID;
             // add ingredient to inventory
-            inventory.addItem(ingredient);
+            inventory.addIngredient(ingredient);
             // destroy ingredient GameObject
             Destroy(collision.gameObject);
             // display message about discovery
