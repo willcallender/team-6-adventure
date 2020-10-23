@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1162150517}
+    - target: {fileID: 339655996952559434, guid: 0a8728f6cf4cf0d42942a139cd7b928a, type: 3}
+      propertyPath: invUI
+      value: 
+      objectReference: {fileID: 1816439715}
     - target: {fileID: 1676414773015299410, guid: 0a8728f6cf4cf0d42942a139cd7b928a, type: 3}
       propertyPath: m_Name
       value: Player

@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour {
     public Sprite upSprite;
     public Sprite leftSprite;
     public Sprite rightSprite;
+    public GameObject invUI;
 
     // Start is called before the first frame update
     void Start() {
@@ -48,6 +49,10 @@ public class playerMovement : MonoBehaviour {
         updateAnim();
         px = x;
         py = y;
+
+        if (Input.GetKeyDown("i")) {
+            invUI.SetActive(!invUI.activeSelf);
+        }
     }
 
     void updateAnim() { 
