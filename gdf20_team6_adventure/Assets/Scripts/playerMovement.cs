@@ -12,6 +12,8 @@ public class playerMovement : MonoBehaviour {
     float tx, ty;
     // the values of x and y from the previous frame
     float px, py = 0;
+    // the current cardinal direction, 0 = up, 1 = right, 2 = down, 3 = left
+    int facing;
     // the text box object to write to
     public GameObject canvas;
     public textBoxManager text;
@@ -19,6 +21,10 @@ public class playerMovement : MonoBehaviour {
     Animator anim;
     // get GameObject for the inventory
     inventoryManager inventory;
+    public Sprite downSprite;
+    public Sprite upSprite;
+    public Sprite leftSprite;
+    public Sprite rightSprite;
 
     // Start is called before the first frame update
     void Start() {
@@ -49,58 +55,98 @@ public class playerMovement : MonoBehaviour {
         // if only x changed and y is 0
         if (px != x && py == y && y == 0) {
             if (x == 0) {
-                anim.Play("idle");
+                idle(facing);
             } else if (x > 0) {
-                anim.Play("elf_run_right");
+                right();
             } else {
-                anim.Play("elf_run_left");
+                left();
             }
         }
         // if only y changed and x is 0
         else if (py != y && px == x && x == 0) {
             if (y == 0) {
-                anim.Play("idle");
+                idle(facing);
             } else if (y > 0) {
-                anim.Play("elf_run_up");
+                up();
             } else {
-                anim.Play("elf_run_down");
+                down();
             }
         }
         // if x changed to 0 and y not 0
         else if (x == 0 && py == y && y != 0) {
             if (y > 0) {
-                anim.Play("elf_run_up");
+                up();
             } else {
-                anim.Play("elf_run_down");
+                down();
             }
         }
         // if y changed to 0 and x not 0
         else if (y == 0 && px == x && x != 0) {
             if (x > 0) {
-                anim.Play("elf_run_right");
+                right();
             } else if (x < 0) {
-                anim.Play("elf_run_left");
+                left();
             }
         }
         // if both changed
         else if (px != x && py != y) {
             if (x == 0 && y == 0) {
-                anim.Play("idle");
+                idle(facing);
             } else if (x == 0) {
                 if (y > 0) {
-                    anim.Play("elf_run_up");
+                    up();
                 } else {
-                    anim.Play("elf_run_down");
+                    down();
                 }
             } else {
                 if (x > 0) {
-                    anim.Play("elf_run_right");
+                    right();
                 } else {
-                    anim.Play("elf_run_left");
+                    left();
                 }
             }
         }
     }
+
+    void idle(int d) {
+        anim.enabled = false;
+        Sprite idle;
+        if (facing == 0) {
+            idle = upSprite;
+        } else if (facing == 1) {
+            idle = rightSprite;
+        } else if (facing == 2) {
+            idle = downSprite;
+        } else {
+            idle = leftSprite;
+        }
+        GetComponent<SpriteRenderer>().sprite = idle;
+    }
+
+    void up() {
+        anim.enabled = true;
+        anim.Play("elf_run_up");
+        facing = 0;
+    }
+
+    void right() {
+        anim.enabled = true;
+        anim.Play("elf_run_right");
+        facing = 1;
+    }
+
+    void down() {
+        anim.enabled = true;
+        anim.Play("elf_run_down");
+        facing = 2;
+    }
+
+    void left() {
+        anim.enabled = true;
+        anim.Play("elf_run_left");
+        facing = 3;
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Ingredient") {
