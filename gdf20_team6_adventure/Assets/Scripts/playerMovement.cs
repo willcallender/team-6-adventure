@@ -7,13 +7,14 @@ public class playerMovement : MonoBehaviour {
     // speed multiplier
     public float speed;
     // the x and y component of user input
-    float x, y;
+    float x = 0, y = 0;
     // the x and y component of translation
-    float tx, ty;
+    float tx = 0, ty = 0;
     // the values of x and y from the previous frame
-    float px, py = 0;
+    float px = 0, py = 0;
     // the current cardinal direction, 0 = up, 1 = right, 2 = down, 3 = left
-    int facing;
+    int facing = 0;
+    Rigidbody2D rb;
     // the text box object to write to
     public GameObject canvas;
     public textBoxManager text;
@@ -32,6 +33,8 @@ public class playerMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<inventoryManager>();
         text = canvas.GetComponent<textBoxManager>();
+        rb = GetComponent<Rigidbody2D>();
+        idle(2);
     }
     
     // Update is called once per frame
@@ -40,9 +43,20 @@ public class playerMovement : MonoBehaviour {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         
-        // this needs to happen because the delta time may change with each frame, making the animation conditions unhelpful
-        tx = x * speed * Time.deltaTime;
-        ty = y * speed * Time.deltaTime;
+        // prevent player from moving above speed by travelling diagonally
+        float c;
+        if (x != 0 && y != 0) {
+            c = speed / Mathf.Sqrt(2);
+        } else {
+            c = speed;
+        }
+        c *= Time.deltaTime;
+        tx = x * c;
+        ty = y * c;
+
+        // Vector2 v = new Vector2(tx, ty);
+
+        // rb.velocity = v;
 
         transform.Translate(tx, ty, 0);
 
@@ -116,11 +130,11 @@ public class playerMovement : MonoBehaviour {
     void idle(int d) {
         anim.enabled = false;
         Sprite idle;
-        if (facing == 0) {
+        if (d == 0) {
             idle = upSprite;
-        } else if (facing == 1) {
+        } else if (d == 1) {
             idle = rightSprite;
-        } else if (facing == 2) {
+        } else if (d == 2) {
             idle = downSprite;
         } else {
             idle = leftSprite;

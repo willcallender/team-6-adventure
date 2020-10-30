@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 2b95120fab6d4df4290e3d6f87a8012e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,11 +122,11 @@ MonoBehaviour:
   speed: 10
   canvas: {fileID: 0}
   text: {fileID: 0}
-  idleSprite: {fileID: 21300000, guid: 2b95120fab6d4df4290e3d6f87a8012e, type: 3}
   downSprite: {fileID: 21300000, guid: 2b95120fab6d4df4290e3d6f87a8012e, type: 3}
   upSprite: {fileID: 21300000, guid: 96b6ae430ff214642b347698273a87d3, type: 3}
   leftSprite: {fileID: 21300000, guid: 53704caffeec38c4398638c1bf85fd5d, type: 3}
   rightSprite: {fileID: 21300000, guid: 13a4cadb4f6e09843a87c7e47b421c39, type: 3}
+  invUI: {fileID: 0}
 --- !u!61 &-8601696160634364570
 BoxCollider2D:
   m_ObjectHideFlags: 0
