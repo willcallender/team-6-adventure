@@ -58,7 +58,9 @@ public class playerMovement : MonoBehaviour {
 
         // rb.velocity = v;
 
-        transform.Translate(tx, ty, 0);
+        // transform.Translate(tx, ty, 0);
+
+        rb.MovePosition(new Vector2(transform.position.x + tx, transform.position.y + ty));
 
         updateAnim();
         px = x;
