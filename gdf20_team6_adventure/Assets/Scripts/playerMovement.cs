@@ -50,7 +50,7 @@ public class playerMovement : MonoBehaviour {
         } else {
             c = speed;
         }
-        c *= Time.deltaTime;
+        // c *= Time.deltaTime;
         tx = x * c;
         ty = y * c;
 
