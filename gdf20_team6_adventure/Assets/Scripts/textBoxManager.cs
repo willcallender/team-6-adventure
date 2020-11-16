@@ -16,9 +16,6 @@ public class textBoxManager : MonoBehaviour {
         
     }
 
-    // Update is called once per frame
-    // void Update() {
-    // }
     public void discoverIngredient(int ID) {
         string message = "You have discovered " + inventory.itemNames[ID];
         StartCoroutine(dispText(message));
