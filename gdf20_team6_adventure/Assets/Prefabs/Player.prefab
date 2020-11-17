@@ -127,6 +127,12 @@ MonoBehaviour:
   leftSprite: {fileID: 21300000, guid: 53704caffeec38c4398638c1bf85fd5d, type: 3}
   rightSprite: {fileID: 21300000, guid: 13a4cadb4f6e09843a87c7e47b421c39, type: 3}
   invUI: {fileID: 0}
+  maxHealth: 100
+  health: 100
+  gameOverPanel: {fileID: 0}
+  damageFlashPanel: {fileID: 0}
+  timeUntilHealthRegen: 5
+  hpRegenPerSecond: 10
 --- !u!61 &-8601696160634364570
 BoxCollider2D:
   m_ObjectHideFlags: 0

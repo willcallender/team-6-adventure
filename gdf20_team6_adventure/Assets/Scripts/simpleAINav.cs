@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class simpleAINav : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    public Transform player;
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
