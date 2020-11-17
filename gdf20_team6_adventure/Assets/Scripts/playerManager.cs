@@ -78,6 +78,13 @@ public class playerManager : MonoBehaviour {
         py = y;
 
         if (Input.GetKeyDown("i")) {
+            if (Time.timeScale == 0 ) {
+                Time.timeScale = 1;
+                setHealth(health);
+            } else {
+                Time.timeScale = 0;
+                healthBar.setAlpha(0);
+            }
             invUI.SetActive(!invUI.activeSelf);
         }
     }

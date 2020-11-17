@@ -42,7 +42,7 @@ public class healthBarManager : MonoBehaviour
         }
     }
 
-    void setAlpha(float a) {
+    public void setAlpha(float a) {
         
         for (int i = 0; i < canvasRenderer.Length; i++) {
             canvasRenderer[i].SetAlpha(a);
