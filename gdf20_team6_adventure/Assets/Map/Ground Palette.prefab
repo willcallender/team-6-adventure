@@ -97,10 +97,10 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 4fc99fac9e8636a43aa5c36c60c10f7b, type: 2}
+    m_Data: {fileID: 11400000, guid: 049eeb9d6f2aefd4ebbb0f9154cbddaa, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 6e21ac40658a2a34cbf1c88aa5eb0ff0, type: 3}
+    m_Data: {fileID: 21300000, guid: ae76225211fd3c14facee3523285efe0, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -157,7 +157,7 @@ TilemapRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -195,7 +195,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &3568095394509504952
+--- !u!114 &7334568066116100384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
