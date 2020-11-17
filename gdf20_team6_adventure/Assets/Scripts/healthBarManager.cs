@@ -10,11 +10,15 @@ public class healthBarManager : MonoBehaviour
     Coroutine hideTimerCoroutine;
     CanvasRenderer[] canvasRenderer;
 
+    private void OnEnable() {
+        slider = GetComponent<Slider>();
+        canvasRenderer = GetComponentsInChildren<CanvasRenderer>(); 
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        slider = GetComponent<Slider>();
-        canvasRenderer = GetComponentsInChildren<CanvasRenderer>();
+        
     }
 
     // Update is called once per frame
