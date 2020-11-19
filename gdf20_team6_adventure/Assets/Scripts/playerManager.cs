@@ -37,6 +37,9 @@ public class playerManager : MonoBehaviour {
     public healthBarManager healthBar;
     public bool inCombat;
     public float inCombatHealthScaler;
+    public float usePotionCooldownTime;
+    bool canUsePotion = true;
+    public GameObject potionPrefab;
 
     // Start is called before the first frame update
     void Start() {
@@ -86,6 +89,9 @@ public class playerManager : MonoBehaviour {
                 healthBar.setAlpha(0);
             }
             invUI.SetActive(!invUI.activeSelf);
+        }
+        if (Input.GetAxisRaw("Fire1") != 0) {
+            usePotion();
         }
     }
 
@@ -251,5 +257,27 @@ public class playerManager : MonoBehaviour {
         if (health > maxHealth) {
             setHealth(maxHealth);
         }
+    }
+
+    void usePotion() {
+        // if potion not allowed to be used, 
+        if (!canUsePotion) {
+            return;
+        } else {
+            canUsePotion = false;
+            StartCoroutine(usePotionCooldown());
+        }
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 worldPosition2d = new Vector2(worldPosition.x, worldPosition.y);
+        GameObject potion = Instantiate(potionPrefab);
+        potion.transform.position = gameObject.transform.position;
+        potionController pc = potion.GetComponent<potionController>();
+        pc.potionName = "dud_potion";
+        pc.targetPos(worldPosition2d);
+    }
+
+    IEnumerator usePotionCooldown() {
+        yield return new WaitForSeconds(usePotionCooldownTime);
+        canUsePotion = true;
     }
 }

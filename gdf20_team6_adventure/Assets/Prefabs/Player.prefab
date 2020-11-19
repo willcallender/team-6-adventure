@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba6ce079e123a344abf5e811814146e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 0.25
   canvas: {fileID: 0}
   text: {fileID: 0}
   downSprite: {fileID: 21300000, guid: 2b95120fab6d4df4290e3d6f87a8012e, type: 3}
@@ -133,6 +133,11 @@ MonoBehaviour:
   damageFlashPanel: {fileID: 0}
   timeUntilHealthRegen: 5
   hpRegenPerSecond: 10
+  healthBar: {fileID: 0}
+  inCombat: 0
+  inCombatHealthScaler: 2
+  usePotionCooldownTime: 5
+  potionPrefab: {fileID: 6862096075673607848, guid: 14702a39a45dfda45af9acf4f1b5176b, type: 3}
 --- !u!61 &-8601696160634364570
 BoxCollider2D:
   m_ObjectHideFlags: 0
