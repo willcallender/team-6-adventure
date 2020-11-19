@@ -111,7 +111,7 @@ public class craftingManager : MonoBehaviour
             id += numHerbs;
         }
         // ensure id is less than numHerbs
-        if (id > numHerbs) {
+        if (id > numHerbs - 1) {
             id = id % numHerbs;
         }
         id = inventory.discoveredHerbs[id];
@@ -157,9 +157,13 @@ public class craftingManager : MonoBehaviour
     // add herb to recipe
     public void addHerb(int slotID) {
         // calculate correct item id
-        int id = getID() + slotID;
+        int id = getID(invSlotOffset + slotID);
+        print(id);
         // add id to recipe list
         recipe.Add(id);
+        for (int i = 0; i < recipe.Count; i++) {
+            print(recipe[i]);
+        }
         numInBrew++;
         brewScroll(true);
     }

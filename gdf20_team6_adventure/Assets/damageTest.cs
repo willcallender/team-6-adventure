@@ -10,6 +10,7 @@ public class damageTest : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(startLate());
     }
 
     // Update is called once per frame
@@ -19,6 +20,11 @@ public class damageTest : MonoBehaviour
     }
 
     private void OnMouseDown() {
+        player.GetComponent<playerManager>().damage(damage);
+    }
+
+    IEnumerator startLate() {
+        yield return new WaitForSeconds(3);
         player.GetComponent<playerManager>().damage(damage);
     }
 }
