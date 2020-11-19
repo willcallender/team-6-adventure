@@ -40,6 +40,8 @@ public class playerManager : MonoBehaviour {
     public float usePotionCooldownTime;
     bool canUsePotion = true;
     public GameObject potionPrefab;
+    public bool mouseOverInteractable = false;
+    public bool inMenu = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -84,9 +86,11 @@ public class playerManager : MonoBehaviour {
             if (Time.timeScale == 0 ) {
                 Time.timeScale = 1;
                 setHealth(health);
+                inMenu = false;
             } else {
                 Time.timeScale = 0;
                 healthBar.setAlpha(0);
+                inMenu = true;
             }
             invUI.SetActive(!invUI.activeSelf);
         }
@@ -260,8 +264,8 @@ public class playerManager : MonoBehaviour {
     }
 
     void usePotion() {
-        // if potion not allowed to be used, 
-        if (!canUsePotion) {
+        // if potion not allowed to be used
+        if (!canUsePotion || mouseOverInteractable || inMenu) {
             return;
         } else {
             canUsePotion = false;
