@@ -36,15 +36,23 @@ public class craftingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // start game with inventory hidden
-        gameObject.SetActive(false);
         // get inventory manager reference
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<inventoryManager>();
-        numHerbs = inventory.numHerbs;
+        if (!inventory.ready()) {
+            StartCoroutine(waitTillReady());
+            return;
+        }
+        numHerbs = inventory.numDiscovered;
         // get array of herb sprites from inventory manager
         herbs = inventory.herbs;
         // set ready flag to true
         ready = true;
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator waitTillReady() {
+        yield return new WaitUntil(inventory.ready);
+        Start();
     }
 
     private void OnEnable() {
@@ -62,7 +70,11 @@ public class craftingManager : MonoBehaviour
 
     void draw() {
         // inventory slots
-        for (int i = 0; i < 4; i++) {
+        numHerbs = inventory.numDiscovered;
+        if (numHerbs == 0) {
+            return;
+        }
+        for (int i = 0; i < min(numHerbs, 4); i++) {
             // instantiate prefab image with slot as parent
             invSlotImgs[i] = Instantiate(herbImagePrefab, invSlots[i].transform);
             // next two lines get the item id
@@ -80,7 +92,6 @@ public class craftingManager : MonoBehaviour
             brewSlotImgs[i] = Instantiate(herbImagePrefab, brewSlots[i].transform);
             // set the image to the correct herb sprite based on item id
             brewSlotImgs[i].GetComponent<Image>().sprite = herbs[recipe[pos]];
-            
         }
     }
 
@@ -103,6 +114,7 @@ public class craftingManager : MonoBehaviour
         if (id > numHerbs) {
             id = id % numHerbs;
         }
+        id = inventory.discoveredHerbs[id];
         // return the calculated item id
         return id;
     }
@@ -131,6 +143,9 @@ public class craftingManager : MonoBehaviour
 
     // increment/decrement invSlotOffset according to direction flag and redraw
     public void invScroll(bool up) {
+        if (numHerbs < 5) {
+            return;
+        }
         if (up) {
             invSlotOffset--;
         } else {

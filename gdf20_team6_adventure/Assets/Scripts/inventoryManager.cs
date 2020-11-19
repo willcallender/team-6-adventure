@@ -9,9 +9,12 @@ public class inventoryManager : MonoBehaviour {
     public string[] itemNames;
     public int[] inventory;
     public bool[] discovered;
+    public int numDiscovered = 0;
     public int numItems;
     public int numHerbs;
     public Sprite[] herbs;
+    public List<int> discoveredHerbs = new List<int>(0);
+    bool readyFlag = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -24,13 +27,20 @@ public class inventoryManager : MonoBehaviour {
             string path = "Sprites/Herbs/" + i.ToString();
             herbs[i] = Resources.Load<Sprite>(path);
         }
+        readyFlag = true;
     }
 
     public void addItem(int ID) {
         if (!discovered[ID]) {
             print("New item " + itemNames[ID] + " discovered");
             discovered[ID] = true;
+            numDiscovered++;
+            discoveredHerbs.Add(ID);
         }
         inventory[ID]++;
+    }
+
+    public bool ready() {
+        return readyFlag;
     }
 }
