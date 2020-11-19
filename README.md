@@ -1,1 +1,1 @@
-# This is the most recent webGL build of the project
+# This is the most recent(ish) webGL build of the project
