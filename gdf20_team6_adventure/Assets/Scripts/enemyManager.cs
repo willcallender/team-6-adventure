@@ -32,7 +32,7 @@ public class enemyManager : MonoBehaviour {
     public playerManager playerManagerObject;
     GameObject playerObject;
     GameObject navTarget;
-    bool confused = false;
+    public bool confused = false;
     // Start is called before the first frame update
     NavMeshAgent agent;
     Coroutine navCoroutine, confuseCountdownCoroutine;
