@@ -156,8 +156,16 @@ public class craftingManager : MonoBehaviour
 
     // add herb to recipe
     public void addHerb(int slotID) {
+        if (numHerbs == 0) {
+            return;
+        }
         // calculate correct item id
-        int id = getID(invSlotOffset + slotID);
+        int id = invSlotOffset + slotID;
+        if (id >= numHerbs) {
+            return;
+        } else {
+            id = getID(id);
+        }
         print(id);
         // add id to recipe list
         recipe.Add(id);
