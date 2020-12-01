@@ -9,7 +9,7 @@ public class genericEnemyAI : MonoBehaviour {
     bool confused = false;
     // Start is called before the first frame update
     NavMeshAgent agent;
-    Coroutine navCoroutine, countdownCoroutine;
+    Coroutine navCoroutine, confuseCountdownCoroutine;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -42,11 +42,11 @@ public class genericEnemyAI : MonoBehaviour {
 
         // Little does Unity know, I'm gonna play the ultimate prank on the compiler. The classic completely ignoring exceptions trick🎃
         try {
-            StopCoroutine(countdownCoroutine);
+            StopCoroutine(confuseCountdownCoroutine);
         }
         catch {}
 
-        countdownCoroutine = StartCoroutine(confuseCountdown(confuseForSeconds));
+        confuseCountdownCoroutine = StartCoroutine(confuseCountdown(confuseForSeconds));
         navCoroutine = StartCoroutine(navTargetRoutine());
     }
 
