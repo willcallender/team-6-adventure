@@ -44,6 +44,7 @@ public class playerManager : MonoBehaviour {
     public GameObject potionPrefab;
     public bool mouseOverInteractable = false;
     public bool inMenu = false;
+    public potionSelector potionSelectorScript;
 
     // Start is called before the first frame update
     void Start() {
@@ -90,8 +91,6 @@ public class playerManager : MonoBehaviour {
         updateAnim();
         px = x;
         py = y;
-
-        print(Input.mouseScrollDelta.y);
     }
 
     private void FixedUpdate() {
@@ -277,7 +276,7 @@ public class playerManager : MonoBehaviour {
         GameObject potion = Instantiate(potionPrefab);
         potion.transform.position = gameObject.transform.position;
         potionController pc = potion.GetComponent<potionController>();
-        pc.potionName = "dud_potion";
+        pc.potionName = potionSelectorScript.selectedPotion;
         pc.targetPos(worldPosition2d);
     }
 
