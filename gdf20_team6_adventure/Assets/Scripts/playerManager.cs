@@ -55,33 +55,6 @@ public class playerManager : MonoBehaviour {
     
     // Update is called once per frame
     void Update() {
-        // get inputs
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
-        
-        // prevent player from moving above speed by travelling diagonally
-        float c;
-        if (x != 0 && y != 0) {
-            c = speed / Mathf.Sqrt(2);
-        } else {
-            c = speed;
-        }
-        // c *= Time.deltaTime;
-        tx = x * c;
-        ty = y * c;
-
-        // Vector2 v = new Vector2(tx, ty);
-
-        // rb.velocity = v;
-
-        // transform.Translate(tx, ty, 0);
-
-        rb.MovePosition(new Vector2(transform.position.x + tx, transform.position.y + ty));
-
-        updateAnim();
-        px = x;
-        py = y;
-
         if (Input.GetKeyDown("i")) {
             if (Time.timeScale == 0 ) {
                 Time.timeScale = 1;
@@ -97,6 +70,37 @@ public class playerManager : MonoBehaviour {
         if (Input.GetAxisRaw("Fire1") != 0) {
             usePotion();
         }
+
+        // get inputs
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
+        
+        // prevent player from moving above speed by travelling diagonally
+        float c;
+        if (x != 0 && y != 0) {
+            c = 1 / Mathf.Sqrt(2);
+        } else {
+            c = 1;
+        }
+        tx = x * c;
+        ty = y * c;
+
+        // Vector2 v = new Vector2(tx, ty);
+
+        // rb.velocity = v;
+
+        // transform.Translate(tx, ty, 0);
+
+        updateAnim();
+        px = x;
+        py = y;
+
+        
+    }
+
+    private void FixedUpdate() {
+        Vector2 movement = new Vector2(tx, ty);
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 
     void updateAnim() { 

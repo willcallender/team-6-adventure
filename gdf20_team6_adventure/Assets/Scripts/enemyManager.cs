@@ -6,11 +6,11 @@ using UnityEngine.AI;
 
 public class enemyManager : MonoBehaviour {
     // speed multiplier
-    public float speed;
+    // public float speed;
     // the x and y component of translation
-    float x = 0, y = 0;
+    // float x = 0, y = 0;
     // the values of x and y from the previous frame
-    float px = 0, py = 0;
+    // float px = 0, py = 0;
     // the current cardinal direction, 0 = up, 1 = right, 2 = down, 3 = left
     int facing = 0;
     Rigidbody2D rb;
@@ -35,7 +35,10 @@ public class enemyManager : MonoBehaviour {
     public bool confused = false;
     // Start is called before the first frame update
     NavMeshAgent agent;
-    Coroutine navCoroutine, confuseCountdownCoroutine;
+    Coroutine navCoroutine, confuseCountdownCoroutine, attackCoroutine;
+    public float meleeRange;
+    public float attackDamage;
+    public float attackSpeed;
 
     // Start is called before the first frame update
     void Start() {
@@ -131,10 +134,6 @@ public class enemyManager : MonoBehaviour {
         facing = 3;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        
-    }
-
     public void damage(float pts) {
         changeHealth(-pts);
         if (health<=0) {
@@ -210,5 +209,19 @@ public class enemyManager : MonoBehaviour {
 
     float getFacingAngle(Vector2 target) {
         return 0f;
+    }
+
+    IEnumerator attackRoutine() {
+        while (true) {
+            if (!confused) {
+                Vector2 opponentPos = gameObject.transform.position;
+                Vector2 targetPos = navTarget.transform.position;
+                float dist = (opponentPos - targetPos).magnitude;
+                if (dist < meleeRange) {
+                    playerManagerObject.damage(attackDamage);
+                }
+            }
+            yield return new WaitForSeconds(attackSpeed);
+        }
     }
 }
