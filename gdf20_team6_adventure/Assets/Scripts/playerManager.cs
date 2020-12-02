@@ -33,7 +33,9 @@ public class playerManager : MonoBehaviour {
     public GameObject damageFlashPanel;
     public float timeUntilHealthRegen;
     public float hpRegenPerSecond;
+    public float timeUntilOutOfCombat;
     Coroutine regenTimerCoroutine;
+    Coroutine combatCooldownCoroutine;
     public healthBarManager healthBar;
     public bool inCombat;
     public float inCombatHealthScaler;
@@ -85,17 +87,11 @@ public class playerManager : MonoBehaviour {
         tx = x * c;
         ty = y * c;
 
-        // Vector2 v = new Vector2(tx, ty);
-
-        // rb.velocity = v;
-
-        // transform.Translate(tx, ty, 0);
-
         updateAnim();
         px = x;
         py = y;
 
-        
+        print(Input.mouseScrollDelta.y);
     }
 
     private void FixedUpdate() {
@@ -244,6 +240,7 @@ public class playerManager : MonoBehaviour {
     }
 
     public void killPlayer() {
+        Time.timeScale = 0;
         gameOverPanel.SetActive(true);
         healthBar.gameObject.SetActive(false);
     }
@@ -254,11 +251,11 @@ public class playerManager : MonoBehaviour {
             time *= inCombatHealthScaler;
         }
         yield return new WaitForSeconds(time);
-        float regen = hpRegenPerSecond;
-        if (inCombat) {
-            regen /= inCombatHealthScaler * 2;
-        }
         while (health < maxHealth) {
+            float regen = hpRegenPerSecond;
+            if (inCombat) {
+                regen /= inCombatHealthScaler * 2;
+            }
             changeHealth(regen * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
@@ -287,5 +284,20 @@ public class playerManager : MonoBehaviour {
     IEnumerator usePotionCooldown() {
         yield return new WaitForSeconds(usePotionCooldownTime);
         canUsePotion = true;
+    }
+
+    public void resetCombatCooldown() {
+        if (inCombat) {
+            StopCoroutine(combatCooldownCoroutine);
+        } else {
+            inCombat = true;
+        }
+
+        combatCooldownCoroutine = StartCoroutine(combatCooldown());
+    }
+
+    IEnumerator combatCooldown() {
+        yield return new WaitForSeconds(timeUntilOutOfCombat);
+        inCombat = false;
     }
 }

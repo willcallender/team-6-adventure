@@ -20,6 +20,10 @@ public class enemyManager : MonoBehaviour {
     public Sprite upSprite;
     public Sprite leftSprite;
     public Sprite rightSprite;
+    public Sprite attackUpSprite;
+    public Sprite attackDownSprite;
+    public Sprite attackLeftSprite;
+    public Sprite attackRightSprite;
     public int opponentVariant;
     string animPrefaceStr;
     public float maxHealth;
@@ -39,6 +43,7 @@ public class enemyManager : MonoBehaviour {
     public float meleeRange;
     public float attackDamage;
     public float attackSpeed;
+    bool attacking = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -54,11 +59,14 @@ public class enemyManager : MonoBehaviour {
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         navCoroutine = StartCoroutine(navTargetRoutine());
+        attackCoroutine = StartCoroutine(attackRoutine());
     }
     
     // Update is called once per frame
     void Update() {
-        updateAnim();
+        if (!attacking) {
+            updateAnim();
+        }
     }
 
     void updateAnim() { 
@@ -213,15 +221,68 @@ public class enemyManager : MonoBehaviour {
 
     IEnumerator attackRoutine() {
         while (true) {
+            bool attackedThisUpdate = false;
             if (!confused) {
                 Vector2 opponentPos = gameObject.transform.position;
                 Vector2 targetPos = navTarget.transform.position;
                 float dist = (opponentPos - targetPos).magnitude;
                 if (dist < meleeRange) {
+                    attacking = true;
                     playerManagerObject.damage(attackDamage);
+                    playerManagerObject.resetCombatCooldown();
+                    anim.enabled = false;
+
+                    Vector2 playerRelative = playerObject.transform.position - gameObject.transform.position;
+
+                    attackSpriteUpdate(playerRelative);
+
+                    attackedThisUpdate = true;
+                    yield return new WaitForSeconds(attackSpeed / 2);
+                    attacking = false;
+                    yield return new WaitForSeconds(attackSpeed / 2);
                 }
             }
-            yield return new WaitForSeconds(attackSpeed);
+            if (!attackedThisUpdate) {
+                yield return new WaitForSeconds(attackSpeed);
+            }
         }
+    }
+
+    void attackSpriteUpdate(Vector2 playerRelative) {
+        Sprite attackSprite;
+
+        if (Mathf.Abs(playerRelative.x) > Mathf.Abs(playerRelative.y)) {
+            if (playerRelative.x > 0) {
+                facing = 1;
+            } else if (playerRelative.x < 0) {
+                facing = 3;
+            }
+        } else if (Mathf.Abs(playerRelative.x) < Mathf.Abs(playerRelative.y)) {
+            if (playerRelative.y > 0) {
+                facing = 0;
+            } else if (playerRelative.y < 0) {
+                facing = 2;
+            }
+        }
+        
+        switch (facing) {
+            case 0:
+                attackSprite = attackUpSprite;
+                break;
+            case 1:
+                attackSprite = attackRightSprite;
+                break;
+            case 2:
+                attackSprite = attackDownSprite;
+                break;
+            case 3:
+                attackSprite = attackLeftSprite;
+                break;
+            default:
+                attackSprite = attackUpSprite;
+                break;
+        }
+
+        GetComponent<SpriteRenderer>().sprite = attackSprite;
     }
 }

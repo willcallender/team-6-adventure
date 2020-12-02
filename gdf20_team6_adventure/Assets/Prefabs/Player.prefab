@@ -133,6 +133,7 @@ MonoBehaviour:
   damageFlashPanel: {fileID: 0}
   timeUntilHealthRegen: 5
   hpRegenPerSecond: 10
+  timeUntilOutOfCombat: 60
   healthBar: {fileID: 0}
   inCombat: 0
   inCombatHealthScaler: 2
