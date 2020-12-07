@@ -1,0 +1,14 @@
+dragon_potion
+fire_potion
+fly_potion
+grow_potion
+ice_potion
+invis_potion
+shrink_potion
+sleep_potion
+slowtime_potion
+speedtime_potion
+teleport_potion
+death_potion
+neutral_potion
+surrender_potion

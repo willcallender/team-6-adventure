@@ -31,6 +31,11 @@ public class craftingManager : MonoBehaviour
     int numInBrew = 0;
     // the current recipe
     List<int> recipe = new List<int>();
+    public TextAsset allRecipesTextAsset;
+    public TextAsset potionNamesAsset;
+    public List<string> potionNames = new List<string>();
+    public List<List<int>> allRecipes = new List<List<int>>();
+    public potionSelector potionSelectorScript;
 
 
     // Start is called before the first frame update
@@ -48,6 +53,19 @@ public class craftingManager : MonoBehaviour
         // set ready flag to true
         ready = true;
         gameObject.SetActive(false);
+        string[] recipes = allRecipesTextAsset.text.Split('\n');
+        for (int i = 0; i < recipes.Length; i++) {
+            List<int> thisRecipeList = new List<int>();
+            string[] thisRecipeStr = recipes[i].Split(' ');
+            for (int j = 0; j < thisRecipeStr.Length; j++) {
+                thisRecipeList.Add(int.Parse(thisRecipeStr[j]));
+            }
+            allRecipes.Add(thisRecipeList);
+        }
+        string[] pnames = potionNamesAsset.text.Split('\n');
+        foreach (string s in pnames) {
+            potionNames.Add(s.Trim());
+        }
     }
 
     IEnumerator waitTillReady() {
@@ -166,12 +184,8 @@ public class craftingManager : MonoBehaviour
         } else {
             id = getID(id);
         }
-        print(id);
         // add id to recipe list
         recipe.Add(id);
-        for (int i = 0; i < recipe.Count; i++) {
-            print(recipe[i]);
-        }
         numInBrew++;
         brewScroll(true);
     }
@@ -213,5 +227,32 @@ public class craftingManager : MonoBehaviour
             }
         }
         redraw();
+    }
+
+    public void brew() {
+        for (int i = 0; i < allRecipes.Count; i++) {
+            if (checkMatch(recipe, allRecipes[i])) {
+                if (!potionSelectorScript.knownPotions.Contains(potionNames[i])) {
+                    potionSelectorScript.knownPotions.Add(potionNames[i]);
+                }
+                while (numInBrew > 0) {
+                    removeHerb(0);
+                }
+                return;
+            }
+        }
+    }
+
+    bool checkMatch(List<int> l1, List<int> l2) {
+        if (l1.Count != l2.Count) {
+            return false;
+        } else {
+            for (int i = 0; i < l1.Count; i++) {
+                if (l1[i] != l2[i]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

@@ -9,7 +9,15 @@ public class potionUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Sprite sprite = Resources.Load<Sprite>("Sprites/Potions/" + id);
+        
+    }
+
+    public void draw() {
+        id = "ice_potion";
+        string path = "Sprites/Potions/" + id;
+        print(path);
+        Sprite sprite = Resources.Load<Sprite>(path);
+        print(sprite);
         GetComponent<Image>().sprite = sprite;
     }
 }

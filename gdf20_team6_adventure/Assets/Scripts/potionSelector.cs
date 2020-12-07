@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class potionSelector : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class potionSelector : MonoBehaviour
     {
         potionImage = Instantiate(potionImagePrefab, gameObject.transform);
         selectedPotion = "dud_potion";
-        potionImage.GetComponent<potionUIController>().id = selectedPotion;
+        potionImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Potions/" + selectedPotion);
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class potionSelector : MonoBehaviour
             Destroy(potionImage);
             potionImage = Instantiate(potionImagePrefab, gameObject.transform);
             selectedPotion = knownPotions[potionId];
-            potionImage.GetComponent<potionUIController>().id = selectedPotion;
+            potionImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Potions/" + selectedPotion);
         }
     }
 
