@@ -148,10 +148,9 @@ MonoBehaviour:
   opponentVariant: 1
   maxHealth: 100
   health: 100
-  timeUntilHealthRegen: 0
+  timeUntilHealthRegen: 3
   hpRegenPerSecond: 5
   inCombat: 0
-  playerManagerObject: {fileID: 0}
   confused: 0
   meleeRange: 7
   attackDamage: 10
