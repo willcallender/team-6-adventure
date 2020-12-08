@@ -22,6 +22,10 @@ public class potionSelector : MonoBehaviour
     void Update()
     {
         int scroll = (int)Input.mouseScrollDelta.y;
+        this.scroll(scroll);
+    }
+
+    public void scroll(int scroll) {
         if (scroll != 0f && knownPotions.Count > 1) {
             potionId += scroll;
             if (potionId >= knownPotions.Count) {
@@ -36,6 +40,4 @@ public class potionSelector : MonoBehaviour
             potionImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Potions/" + selectedPotion);
         }
     }
-
-
 }

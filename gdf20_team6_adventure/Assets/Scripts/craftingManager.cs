@@ -238,6 +238,9 @@ public class craftingManager : MonoBehaviour
                 while (numInBrew > 0) {
                     removeHerb(0);
                 }
+                while (potionSelectorScript.selectedPotion != potionNames[i]) {
+                    potionSelectorScript.scroll(1);
+                }
                 return;
             }
         }
