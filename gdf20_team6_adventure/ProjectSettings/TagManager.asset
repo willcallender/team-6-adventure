@@ -8,6 +8,7 @@ TagManager:
   - Inventory
   - TextBox
   - Enemy
+  - Brew Noise
   layers:
   - Default
   - TransparentFX

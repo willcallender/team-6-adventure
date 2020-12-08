@@ -36,6 +36,7 @@ public class craftingManager : MonoBehaviour
     public List<string> potionNames = new List<string>();
     public List<List<int>> allRecipes = new List<List<int>>();
     public potionSelector potionSelectorScript;
+    public AudioSource brewNoise;
 
 
     // Start is called before the first frame update
@@ -79,11 +80,13 @@ public class craftingManager : MonoBehaviour
             draw();
         }
         numInBrew = recipe.Count;
+        brewNoise.Play();
     }
 
     private void OnDisable() {
         // clear slots on disable 
         erase();
+        brewNoise.Stop();
     }
 
     void draw() {
