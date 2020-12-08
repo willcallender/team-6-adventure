@@ -45,6 +45,8 @@ public class playerManager : MonoBehaviour {
     public bool mouseOverInteractable = false;
     public bool inMenu = false;
     public potionSelector potionSelectorScript;
+    public bool isInvis = false;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start() {
@@ -52,6 +54,7 @@ public class playerManager : MonoBehaviour {
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<inventoryManager>();
         text = canvas.GetComponent<textBoxManager>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         idle(2);
         healthBar.setHealth(health);
     }
@@ -168,7 +171,7 @@ public class playerManager : MonoBehaviour {
         } else {
             idle = leftSprite;
         }
-        GetComponent<SpriteRenderer>().sprite = idle;
+        spriteRenderer.sprite = idle;
     }
 
     void up() {
@@ -276,6 +279,7 @@ public class playerManager : MonoBehaviour {
         GameObject potion = Instantiate(potionPrefab);
         potion.transform.position = gameObject.transform.position;
         potionController pc = potion.GetComponent<potionController>();
+        pc.gameObject.AddComponent(System.Type.GetType(potionSelectorScript.selectedPotion));
         pc.potionName = potionSelectorScript.selectedPotion;
         pc.targetPos(worldPosition2d);
     }
@@ -298,5 +302,25 @@ public class playerManager : MonoBehaviour {
     IEnumerator combatCooldown() {
         yield return new WaitForSeconds(timeUntilOutOfCombat);
         inCombat = false;
+    }
+
+    public void invis(float d) {
+        if (!isInvis) {
+            StartCoroutine(invisRoutine(d));
+        }
+    }
+
+    IEnumerator invisRoutine(float d) {
+        isInvis = true;
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++) {
+            enemyManager manager = enemies[i].GetComponent<enemyManager>();
+            manager.confuse(enemies[i], d);
+        }
+        yield return new WaitForSeconds(d);
+        spriteRenderer.color = originalColor;
+        isInvis = false;
     }
 }

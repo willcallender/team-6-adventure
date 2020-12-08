@@ -33,7 +33,7 @@ public class enemyManager : MonoBehaviour {
     Coroutine regenTimerCoroutine;
     //public healthBarManager healthBar;
     public bool inCombat;
-    public playerManager playerManagerObject;
+    playerManager playerManagerObject;
     GameObject playerObject;
     GameObject navTarget;
     public bool confused = false;
@@ -44,11 +44,16 @@ public class enemyManager : MonoBehaviour {
     public float attackDamage;
     public float attackSpeed;
     bool attacking = false;
+    bool takingDamage;
+    public float damageTime = 0.25f;
+    bool iced = false;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start() {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animPrefaceStr = "opponent_v" + opponentVariant.ToString();
         facing = 2;
         idle(2);
@@ -115,7 +120,7 @@ public class enemyManager : MonoBehaviour {
         } else {
             idleSprite = leftSprite;
         }
-        GetComponent<SpriteRenderer>().sprite = idleSprite;
+        spriteRenderer.sprite = idleSprite;
     }
 
     void up() {
@@ -143,6 +148,12 @@ public class enemyManager : MonoBehaviour {
     }
 
     public void damage(float pts) {
+        if (takingDamage) {
+            return;
+        } else {
+            takingDamage = true;
+        }
+        StartCoroutine(damageCountdown());
         changeHealth(-pts);
         if (health<=0) {
             killSelf();
@@ -156,6 +167,14 @@ public class enemyManager : MonoBehaviour {
             }
             regenTimerCoroutine = StartCoroutine(regenTimer());
         }
+    }
+
+    IEnumerator damageCountdown() {
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = new Color(255, 0, 0);
+        yield return new WaitForSeconds(damageTime);
+        spriteRenderer.color = originalColor;
+        takingDamage = false;
     }
 
     void setHealth(float h) {
@@ -283,6 +302,27 @@ public class enemyManager : MonoBehaviour {
                 break;
         }
 
-        GetComponent<SpriteRenderer>().sprite = attackSprite;
+        spriteRenderer.sprite = attackSprite;
+    }
+
+    public void ice(float duration) {
+        if (!iced) {
+            StartCoroutine(iceRoutine(duration));
+        }
+    }
+
+    IEnumerator iceRoutine(float d) {
+        iced = true;
+        float originalSpeed = agent.speed;
+        agent.speed /= 2;
+        float originalAttackSpeed = attackSpeed;
+        attackSpeed *= 2;
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = new Color(0, 0, 153);
+        yield return new WaitForSeconds(d);
+        agent.speed = originalSpeed;
+        spriteRenderer.color = originalColor;
+        attackSpeed = originalAttackSpeed;
+        iced = false;
     }
 }
