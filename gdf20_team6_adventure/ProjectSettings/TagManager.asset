@@ -9,6 +9,7 @@ TagManager:
   - TextBox
   - Enemy
   - Brew Noise
+  - Walls
   layers:
   - Default
   - TransparentFX
