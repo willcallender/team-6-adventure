@@ -130,7 +130,7 @@ TextureImporter:
         width: 392
         height: 923
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,27 +138,6 @@ TextureImporter:
       bones: []
       spriteID: 1c0b10d1010b378c0800000000000000
       internalID: -4002662060549623615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elf_x_front_run_1
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 835
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d4139926d142e350800000000000000
-      internalID: 6044466037960938707
       vertices: []
       indices: 
       edges: []
@@ -172,7 +151,7 @@ TextureImporter:
         width: 385
         height: 939
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,7 +172,7 @@ TextureImporter:
         width: 388
         height: 918
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,7 +193,7 @@ TextureImporter:
         width: 387
         height: 935
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,48 +201,6 @@ TextureImporter:
       bones: []
       spriteID: a762b64a327ffbb50800000000000000
       internalID: 6611274510457579130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elf_x_front_run_5
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 686
-        width: 5
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f938d25538cd3550800000000000000
-      internalID: 6142285598151948785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elf_x_front_run_6
-      rect:
-        serializedVersion: 2
-        x: 1265
-        y: 691
-        width: 5
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69373dff1c25525c0800000000000000
-      internalID: -4240892480925240426
       vertices: []
       indices: 
       edges: []
